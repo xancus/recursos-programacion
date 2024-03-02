@@ -1,10 +1,10 @@
 ---
 import {Prism} from '@astrojs/prism'
-import Layout from '@/layouts/Layout.astro'
+import Layout from '../../layouts/Layout.astro'
 import { Code } from 'astro:components'
-import BlockContent from '@/components/block/BlockContent.astro'
-import CopyCode from '@/components/CopyCode.astro'
-import {contentArray} from '@/db/db'
+import BlockContent from '../../components/block/BlockContent.astro'
+import CopyCode from '../../components/CopyCode.astro'
+import {contentArray} from '../../db/db'
 
 interface Content {
     id: number

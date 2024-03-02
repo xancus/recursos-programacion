@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { contentArray } from "@/db/db";
+import { contentArray } from "../db/db";
 import { CardBlock } from "./CardBlock";
 import { Button } from "./Button";
 
