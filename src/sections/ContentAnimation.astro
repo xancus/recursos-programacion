@@ -1,0 +1,26 @@
+---
+const {titleSection} = Astro.props
+import { contentArray } from "../db/db"
+import CardAnimation from "../components/CardAnimation.astro"
+
+interface Content {
+    id: number
+    slug: string
+    title: string
+    description: string
+    type: string
+    category: string
+    language: string
+    code: string
+    img: string
+}
+
+const filteredContent: Content[] = contentArray.filter(content => content.category === titleSection)
+
+---
+
+<main class="grid [grid-template-columns:1fr] md:grid-cols-4 gap-8">
+    {filteredContent.map(content => (
+        <CardAnimation {...content} />
+    ))}
+</main>

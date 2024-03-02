@@ -1,0 +1,27 @@
+---
+import CopyCode from "./CopyCode.astro";
+const { code, description, title, slug } = Astro.props
+---
+<article 
+    aria-label=`${description}` 
+    style={{
+        border: '1px solid rgba(0,0,0,.2)', 
+        background: 'var(--cards-background-color)'
+    }}
+    class="relative w-full h-full rounded-lg hover:cursor-pointer transition flex flex-col p-4 gap-4 overflow-hidden"
+>
+    <div>
+        <CopyCode slug={slug} /> 
+    </div>
+    <div class="pt-4 text-lg h-full overflow-auto grid items-center place-content-center" id={slug}>
+        <script is:inline define:vars={{code, slug}}>
+            const blurred = document.querySelector(`#${slug}`);
+            if (blurred) blurred.innerHTML = code;
+          </script>
+    </div>
+    <header class="flex-grow text-primary text-center">
+        <h2 class="font-bold my-2 txt-2xl tracking-light">{title.toLowerCase()}</h2>
+    </header>
+
+</article>
+    

@@ -1,0 +1,113 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import Nav from '../sections/LateralNav.astro'
+import ThemeToggle from '../components/ThemeToggle.astro'
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link href="../themes/prism-ghcolors.css" rel="stylesheet" />
+
+		<meta name="keywords" content="engyne, css, html, js, snippets" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="" />
+		<meta name="twitter:creator" content="" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content="/og.jpg" />
+
+		<meta name="og:image" content="/og.jpg" />
+		<meta name="og:title" content={title} />
+		<meta name="og:description" content={description} />
+		<meta name="og:url" content="" />
+		<meta name="og:site_name" content="" />
+		<meta name="og:type" content="website" />
+		<meta name="og:locale" content="es_ES" />
+
+		<meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow" />
+		<ViewTransitions transition:persist />
+		<title>{title}</title>
+	</head>
+	<body class="p-4 m-auto">
+		<header class="flex flex-row justify-end mb-4">
+			<ThemeToggle />
+		</header>
+		<main class="grid md:grid-cols-[300px_1fr] gap-8">
+			<Nav />
+			<slot />
+		</main>
+	</body>
+</html>
+<style is:global>
+	:root {
+		--color-primary: #1E1E1E;
+		--color-secondary: #ddd;
+
+		--hover-color-primary: #333;
+		--hover-color-secondary: #e5e7eb;
+
+		--background-color: var(--color-secondary);
+		--cards-background-color: linear-gradient(32.6deg,#38369a2c 28.69%,rgba(255,255,253,.2) 100%);
+
+		--color-scheme: light dark;
+	}
+	.dark {
+		--color-primary: #ddd;
+		--color-secondary: #1E1E1E;
+
+		--hover-color-primary: #e5e7eb;
+		--hover-color-secondary: #333;
+
+		--background-color: var(--color-secondary);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: var(--background-color);
+		scroll-behavior: smooth;
+		overflow-x: hidden;
+		overscroll-behavior: none;
+	}
+	::-webkit-scrollbar {
+		width: 10px;
+		border-radius: 10px;
+		height: 10px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: var(--color-primary);
+		border: 2px solid transparent;
+		background-clip: content-box;
+	}
+
+	::-webkit-scrollbar-track {
+		background: var(--background-color);
+		border: 0px solid black;
+		border-radius: 0 12px 12px 0px;
+	}
+
+	::-webkit-scrollbar-corner {
+		background-color: var(--background-color)!important;
+		border-radius: 10px;
+	}
+
+	pre > code {
+		white-space: pre-wrap!important;
+	}
+	
+</style>
+

@@ -1,0 +1,7 @@
+---
+import { ContentDynamic } from "../components/ContentDynamic";
+
+const {titleSection} = Astro.props
+---
+
+<ContentDynamic client:visible titleSection={titleSection} />
