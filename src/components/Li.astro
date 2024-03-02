@@ -1,0 +1,28 @@
+---
+interface Props {
+    slug: string
+}
+
+const { slug } = Astro.props
+---
+
+<a href={`/${slug.toLowerCase()}`}>
+    <li 
+        aria-label={slug} 
+        class='hover:bg-hover-primary hover:cursor-pointer hover:text-secondary flex items-center gap-2 font-semibold px-4 mb-1 py-4 rounded-lg duration-100'
+    >
+      <slot />
+    </li>
+</a>
+
+<script is:inline define:vars={{slug}}>
+    document.addEventListener('astro:page-load', () => {
+        const $currentLi = document.querySelector(`[aria-label='${slug}']`)
+        const pathname = window.location.pathname
+        const currentPage = pathname.split('/')[1]
+
+        if(currentPage === slug) {
+            $currentLi.classList.add('bg-primary', 'text-secondary')
+        }
+    })
+</script>
