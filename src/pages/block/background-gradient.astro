@@ -1,9 +1,9 @@
 ---
 import {Prism} from '@astrojs/prism'
-import Layout from '../../layouts/Layout.astro'
-import CopyCode from '../../components/CopyCode.astro'
-import {contentArray} from '../../db/db'
-import BlockContent from '../../components/block/BlockContent.astro'
+import Layout from '@/layouts/Layout.astro'
+import CopyCode from '@/components/CopyCode.astro'
+import {contentArray} from '@/db/db'
+import BlockContent from '@/components/block/BlockContent.astro'
 
 interface Content {
     id: number;
@@ -13,7 +13,6 @@ interface Content {
 }
 
 const code: Content | undefined = contentArray.find(c => c.slug === 'background-gradient');
-console.log(code)
 
 ---
 
