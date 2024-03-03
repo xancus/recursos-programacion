@@ -6,23 +6,28 @@ interface Props {
 const { slug } = Astro.props
 ---
 
-<a href={`/${slug.toLowerCase()}`}>
+<a href={`/${slug.toLowerCase()}`} aria-label="lateral-menu-li">
     <li 
         aria-label={slug} 
-        class='hover:bg-hover-primary hover:cursor-pointer hover:text-secondary flex items-center gap-2 font-semibold px-4 mb-1 py-4 rounded-lg duration-100'
+        class='hover:bg-hover-primary hover:cursor-pointer hover:text-secondary flex items-center gap-2 font-semibold px-4 mb-1 py-2 rounded-lg transition duration-100'
     >
       <slot />
     </li>
 </a>
 
-<script is:inline define:vars={{slug}}>
+<script is:inline>
     document.addEventListener('astro:page-load', () => {
-        const $currentLi = document.querySelector(`[aria-label='${slug}']`)
         const pathname = window.location.pathname
         const currentPage = pathname.split('/')[1]
 
-        if(currentPage === slug) {
-            $currentLi.classList.add('bg-primary', 'text-secondary')
-        }
+        const $a = document.querySelectorAll('[aria-label="lateral-menu-li"]')
+        $a.forEach(item => {
+            const $li = item.children[0]
+            const label = $li.getAttribute('aria-label')
+
+            if(label === currentPage) {
+                $li.classList.add('bg-primary', 'text-secondary')
+            }
+        })
     })
 </script>

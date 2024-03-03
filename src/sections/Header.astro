@@ -1,0 +1,40 @@
+---
+import ThemeToggle from '@/components/ThemeToggle.astro'
+import GithubIcon from '@/icons/github.astro'
+import MenuIcon from '@/icons/menu.astro'
+import HiddenMenu from '@/components/HiddenMenu.astro'
+---
+
+<header class="flex flex-row justify-between">
+    <div class="block md:hidden" data-class="menu-burguer" aria-label="Haz clic en el menú para desplegar las diferentes opciones">
+        <MenuIcon class="text-primary" />
+        <HiddenMenu />
+    </div>
+    <div class="flex flex-row justify-end mb-4 grow">
+        <a 
+            aria-label="Github xancus, se arbrirá en una nueva pestaña"
+            href='https://github.com/xancus/recursos-programacion'
+        >
+        <GithubIcon class="hover:opacity-70 transition hover:scale-105 opacity-100 text-primary"/>
+        </a>
+        <ThemeToggle />
+    </div>
+</header>
+
+<script is:inline>
+    document.addEventListener('astro:page-load', () => {
+        const $menuButton = document.querySelector('[data-class="menu-burguer"]')
+        const $resMenu = document.querySelector('#res-menu')
+        const classes = ['hidden', 'flex']
+        $menuButton.addEventListener('click', handleClickMenu)
+
+        function handleClickMenu() {
+            console.log('estic clicat ', classes, $resMenu.classList)
+            classes.forEach(cl => {
+                console.log(cl)
+                $resMenu.classList.toggle(cl)
+            })
+        }
+    })
+    
+</script>
