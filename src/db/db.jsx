@@ -3,7 +3,7 @@ export const contentArray = [
     id: 0,
     slug: 'navbar-blur',
     title: 'Navbar Blur',
-    description: 'Copy this code block to add blur to your navbar',
+    description: 'Copia este código y añade el efecto Blur a tu menú de navegación',
     type: 'frontend',
     category: 'block',
     language: 'html',
@@ -27,7 +27,7 @@ export const contentArray = [
     id: 1,
     slug: 'flask-api',
     title: 'flask api',
-    description: 'Copy this code block to add blur to your navbar',
+    description: '',
     type: 'backend',
     category: 'block',
     language: '',
@@ -37,7 +37,7 @@ export const contentArray = [
     id: 2,
     slug: 'digital-ocean',
     title: 'Server Digital Ocean',
-    description: 'Learn how to set up a server with digital ocean',
+    description: '',
     type: 'documentation',
     category: 'documentation',
     language: '',
@@ -47,7 +47,7 @@ export const contentArray = [
     id: 3,
     slug: 'smkoke-effect',
     title: 'Smoke Effect',
-    description: 'Learn how to set up a server with digital ocean',
+    description: '',
     type: 'frontend',
     category: 'block',
     language: '',
@@ -57,12 +57,12 @@ export const contentArray = [
     id: 4,
     slug: 'title-merged-with-image',
     title: 'Title merged with image',
-    description: 'Learn how to set up a server with digital ocean',
+    description: 'Aprende a mezclar un texto con una imagen de fondo con pocas líneas de CSS y HTML',
     type: 'frontend',
     category: 'block',
     language: 'html',
     code: `
-<h1>Test title</h1>
+<h1>KA-CHAU</h1>
 
 <style>
 
@@ -76,7 +76,8 @@ export const contentArray = [
         text-transform: uppercase;
         font-weight: 800;
         -webkit-font-smoothing: antialiased;
-        background-image: url('../concrete.png');
+        background-image: url('../r.png');
+        background-size: contain;
     }
 </style>
         `,
@@ -85,7 +86,7 @@ export const contentArray = [
     id: 5,
     slug: 'scroll-bar',
     title: 'Scroll Bar',
-    description: 'Learn how to set up a server with digital ocean',
+    description: '',
     type: 'frontend',
     category: 'block',
     language: '',
@@ -95,7 +96,7 @@ export const contentArray = [
     id: 6,
     slug: 'light-dark-mode',
     title: 'Dark mode',
-    description: 'Learn how to set up a server with digital ocean',
+    description: '',
     type: 'frontend',
     category: 'block',
     language: '',
@@ -106,7 +107,7 @@ export const contentArray = [
     id: 7,
     slug: 'confetti',
     title: 'Confeti',
-    description: 'Learn how to set up a server with digital ocean',
+    description: '',
     type: 'frontend',
     category: 'block',
     language: '',
@@ -116,7 +117,7 @@ export const contentArray = [
     id: 8,
     slug: 'image-grid',
     title: 'Image grid',
-    description: 'Learn how to set up a server with digital ocean',
+    description: '',
     type: 'frontend',
     category: 'block',
     language: '',
@@ -126,7 +127,7 @@ export const contentArray = [
     id: 9,
     slug: 'carousel-image',
     title: 'Carousel Image',
-    description: 'Learn how to set up a server with digital ocean',
+    description: '',
     type: 'frontend',
     category: 'block',
     language: '',
@@ -136,7 +137,7 @@ export const contentArray = [
     id: 10,
     slug: 'blurred-fade-in',
     title: 'Blurred fade-in',
-    description: '',
+    description: 'Con estas pocas líneas de código aprenderás a crear un efecto de animación fade-in con el añadido del efecto blur',
     type: 'frontend',
     category: 'animation',
     language: '',
@@ -163,7 +164,7 @@ export const contentArray = [
     id: 11,
     slug: 'fade-in',
     title: 'Fade in',
-    description: '',
+    description: 'Con estas pocas líneas de código aprenderás a crear un efecto de animación fade-in',
     type: 'frontend',
     category: 'animation',
     language: 'html',
@@ -188,7 +189,7 @@ export const contentArray = [
     id: 12,
     slug: 'fade-out',
     title: 'Fade out',
-    description: '',
+    description: 'Con estas pocas líneas de código aprenderás a crear un efecto de animación fade-out',
     type: 'frontend',
     category: 'animation',
     language: 'html',
@@ -213,7 +214,7 @@ export const contentArray = [
     id: 13,
     slug: 'slide-out-left',
     title: 'Slide out left',
-    description: '',
+    description: 'Con estas pocas líneas de código aprenderás a crear un efecto de animación slide-out-left',
     type: 'frontend',
     category: 'animation',
     language: 'html',
@@ -238,7 +239,7 @@ export const contentArray = [
     id: 14,
     slug: 'slide-out-right',
     title: 'Slide out right',
-    description: '',
+    description: 'Con estas pocas líneas de código aprenderás a crear un efecto de animación slide-out-right',
     type: 'frontend',
     category: 'animation',
     language: 'html',
@@ -263,7 +264,7 @@ export const contentArray = [
     id: 15,
     slug: 'slide-out-top',
     title: 'Slide out top',
-    description: '',
+    description: 'Con estas pocas líneas de código aprenderás a crear un efecto de animación sldie-out-top',
     type: 'frontend',
     category: 'animation',
     language: '',
@@ -273,7 +274,7 @@ export const contentArray = [
     id: 16,
     slug: 'slide-out-bottom',
     title: 'Slide out bottom',
-    description: '',
+    description: 'Con estas pocas líneas de código aprenderás a crear un efecto de animación slide-out-bottom',
     type: 'frontend',
     category: 'animation',
     language: '',
@@ -423,17 +424,54 @@ export const contentArray = [
     id: 31,
     slug: 'image-magic-fade-in',
     title: 'Image magic fade-in',
-    description: '',
+    description: 'Con estas pocas líneas de código aprenderás a crear un efecto de animación con el que tu imagen aparecerá en pantalla de la forma más espectacular',
     type: 'frontend',
     category: 'block',
-    language: '',
-    code: '',
-    img: ''
+    language: 'html',
+    code: `
+<svg
+width="800" 
+height="579" 
+xmlns="http://www.w3.org/2000/svg"
+fill="currentColor"
+viewBox="0 0 256 256"
+class='h-[300px] w-[150px]'
+>
+  <path
+    id='logo'
+    fill="currentColor" stroke="currentColor"
+    stroke-width="1"
+    d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"
+  >
+  </path>
+</svg>
+<style>
+#logo {
+  fill-opacity: 0;
+  stroke-dasharray: 1300;
+  stroke-dashoffset: 1300;
+  animation: dash 2s ease-in forwards;
+}
+
+@keyframes dash {
+  70% {
+    fill-opacity: 0;
+  }
+
+  100% {
+    fill-opacity: 100%;
+    stroke-dashoffset: 0;
+    stroke-width: 1;
+  }
+}
+</style>
+    `,
+    img: 'image-magic.webp'
   }, {
     id: 32,
     slug: 'separator',
     title: 'Separator',
-    description: '',
+    description: 'Con estas pocas líneas de código podrás crear un separador sencillo y bonito para tu página web.',
     type: 'frontend',
     category: 'block',
     language: 'tailwindcss',
@@ -443,7 +481,7 @@ export const contentArray = [
     id: 33,
     slug: 'countdown',
     title: 'Countdown',
-    description: '',
+    description: 'Aprende a programar un contador con este bloque de código.',
     type: 'frontend',
     category: 'block',
     language: 'javascript',
@@ -453,7 +491,7 @@ export const contentArray = [
     id: 34,
     slug: 'background-gradient',
     title: 'Background with gradient',
-    description: '',
+    description: 'Con estas pocas líneas de código hechas con HTML y Tailwind podrás crear un efecto degradado de a bajo hacia arriba.',
     type: 'frontend',
     category: 'block',
     language: 'html',

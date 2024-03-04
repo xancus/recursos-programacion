@@ -18,24 +18,13 @@ import MoonIcon from "../icons/moon.astro"
 </button>
 
 <script is:inline>
-  function getThemePreference() {
-      if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-        return localStorage.getItem("theme")
-      }
+  function updateThemeMessage(theme) {
+		const translation = theme ? "oscuro" : "claro"
+		const actualThemeMsg = `Alternar tema, el tema actual es ${translation}`
+		const span = document.querySelector("span.sr-only")
+		span.innerHTML = actualThemeMsg
 
-    }
-  
-  document.addEventListener('astro:page-load', () => {
-    const isDark = getThemePreference() === "dark"
-    document.documentElement.classList[isDark ? "add" : "remove"]("dark")
-
-    const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)")
-    darkModePreference.addEventListener("change", handleThemePreferenceChange)
-    darkModePreference.addListener(handleThemePreferenceChange) // backward compatibility
-
-    updateThemeMessage(window.getThemePreference())
-  })
-  
+	}
 
   function handleToggleClick() {
 		const element = document.documentElement
@@ -47,19 +36,16 @@ import MoonIcon from "../icons/moon.astro"
 		updateThemeMessage(isDark)
 	}
 
-	function updateThemeMessage(theme) {
-		const translation = theme ? "oscuro" : "claro"
-		const actualThemeMsg = `Alternar tema, el tema actual es ${translation}`
-		const span = document.querySelector("span.sr-only")
-		span.innerHTML = actualThemeMsg
-
-		window.dispatchEvent(new Event("theme-changed"))
-	}
-
-	function handleThemePreferenceChange(e) {
+  function handleThemePreferenceChange(e) {
 		const isDark = document.documentElement.classList.contains("dark")
 		const toggle = (e.matches && !isDark) || (!e.matches && isDark)
 		if (toggle) handleToggleClick()
 	}
+  document.addEventListener('astro:page-load', () => {
+    let darkModePreference = window.matchMedia("(prefers-color-scheme: dark)")
+    darkModePreference.addEventListener("change", handleThemePreferenceChange)
+    darkModePreference.addListener(handleThemePreferenceChange) // backward compatibility
 
+    updateThemeMessage(getThemePreference())
+  })
 </script>

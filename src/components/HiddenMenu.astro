@@ -1,9 +1,10 @@
 ---
-import GithubIcon from '../icons/github.astro'
-import ThemeToggle from './ThemeToggle.astro'
+import GithubIcon from '@/icons/github.astro'
 import Li from "./Li.astro"
+import CloseIcon from '@/icons/close.astro'
 ---
-<section class="hidden bg-[green] absolute left-0 top-0 right-0 h-[200vh] z-50 p-4 flex-col" id="res-menu">
+<section class="hidden bg-[var(--background-color)] fixed left-0 top-0 right-0 h-full z-50 p-4 flex-col" id="res-menu">
+    <CloseIcon class="text-primary"/>
     <div class="flex flex-row justify-center mb-4">
         <a 
             aria-label="Github xancus, se arbrirá en una nueva pestaña"
@@ -11,7 +12,6 @@ import Li from "./Li.astro"
         >
         <GithubIcon class="hover:opacity-70 transition hover:scale-105 opacity-100 text-primary"/>
         </a>
-        <ThemeToggle />
     </div>
     <nav class="relative">
         <ul class="h-full flex flex-col gap-2 text-primary text-xl">
