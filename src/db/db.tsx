@@ -1,4 +1,17 @@
-export const contentArray = [
+type Content = {
+  id: number
+  slug: string
+  title: string
+  description: string
+  type: string
+  category: string
+  language: string
+  visualisation: boolean
+  code: string
+  img: string
+}
+
+export const contentArray: Content[] = [
   {
     id: 0,
     slug: 'navbar-blur',
@@ -7,21 +20,73 @@ export const contentArray = [
     type: 'frontend',
     category: 'block',
     language: 'html',
-    code: `
-<header className='shadow-[0_0_30px_0_rgba(0,0,0,.2)] py-4 fixed top-0 left-0 right-0 h-[100px] z-10 backdrop-filter backdrop-blur bg-[rgba(0,0,0,.336)] grid items-center'>
-    <nav className='font-Poppinn font-medium flex items-center justify-between max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg  w-full m-auto px-4'>
-        <Link href='/'>
-          <svg></svg>
-        </Link>
+    visualisation: true,
+    code: `<header style='box-shadow: 0 0 30px 0 rgba(250, 250, 250, 0.2);
+    position: fixed;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    z-index: 10;
+    backdrop-filter: blur(10px); /* Adjust the blur value as needed */
+    background-color: rgba(0,0,0,.336); /* Adjust the background color and opacity as needed */
+    display: grid;
+    grid-template-areas: "nav";
+    align-items: center;'>
+            <nav style='font-family: Poppinn;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;'>
+            <a href='/'>
+                <svg 
+                style='max-width: 130px; width: 100%;height: auto; color: var(--color-primary)'
+                version="1.0" 
+                xmlns="http://www.w3.org/2000/svg"
+                width="769.000000pt" 
+                height="513.000000pt" 
+                viewBox="0 0 769.000000 513.000000"
+                preserveAspectRatio="xMidYMid meet"
+                >
 
-        <ul className='inline-flex flex-row font-bold gap-4'>
-          <li className='font-bold text-[var(--color-primary)]'>
-            Test
-          </li>
-          <li className='text-[var(--color-primary)] cursor-pointer'>Test</li>
-        </ul>
-    </nav>
-</header>`,
+                <g transform="translate(0.000000,513.000000) scale(0.100000,-0.100000)"
+                fill="currentColor" stroke="none">
+                <path d="M5395 3876 c-338 -53 -569 -237 -631 -502 -24 -104 -15 -297 17 -384
+                49 -131 164 -265 306 -359 43 -29 211 -118 373 -198 295 -146 295 -146 376
+                -227 94 -94 118 -147 117 -256 -1 -146 -90 -255 -253 -310 -214 -72 -579 -23
+                -850 115 -29 15 -54 25 -56 23 -9 -9 -104 -354 -100 -364 6 -17 140 -70 247
+                -99 192 -51 329 -69 539 -69 219 -1 301 12 452 68 122 46 191 90 279 176 128
+                127 188 280 189 476 0 175 -52 308 -171 438 -94 102 -173 152 -489 311 -296
+                149 -397 211 -461 283 -62 70 -83 123 -83 212 -1 186 115 287 360 315 135 15
+                431 -46 588 -121 28 -13 53 -21 57 -17 11 13 100 344 94 353 -10 17 -157 71
+                -257 95 -218 52 -468 68 -643 41z"/>
+                <path d="M1899 3823 c-52 -135 -919 -2517 -919 -2524 0 -5 95 -9 223 -9 l223
+                0 371 1072 c242 701 375 1073 384 1073 9 0 140 -370 380 -1070 l366 -1070 243
+                -3 c139 -1 240 1 238 7 -1 4 -212 581 -468 1280 l-464 1271 -283 0 -283 0 -11
+                -27z"/>
+                <path d="M3730 2570 l0 -1280 215 0 215 0 0 1280 0 1280 -215 0 -215 0 0
+                -1280z"/>
+                <path d="M1755 1281 c-3 -5 -30 -80 -60 -165 l-54 -156 534 0 c300 0 535 4
+                535 9 0 5 -24 78 -54 162 l-54 154 -420 3 c-257 1 -423 -1 -427 -7z"/>
+                </g>
+                </svg>
+            </a>
+    
+            <ul style='display: flex; flex-direction: row; list-style:none; font-weight: bold; gap: 18px'>
+                <li style='color: var(--color-primary)'>Test</li>
+                <li style='color: var(--color-primary)'>
+                Test
+                </li>
+                <li style='color: var(--color-primary)'>Test</li>
+            </ul>
+            </nav>
+        </header>
+        <div style='margin-top: 100px; color: var(--color-primary)'>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, tempor bibendum iaculis suspendisse blandit mi natoque, praesent libero aliquet phasellus nulla netus. Hac lectus dictum et habitant vitae habitasse suspendisse odio placerat, etiam convallis potenti ac mattis feugiat montes libero cum primis, luctus mauris vehicula tristique posuere auctor dapibus venenatis. Platea cras turpis parturient viverra pretium netus purus potenti nisi sociis, consequat mus ligula quam mattis malesuada accumsan dui etiam sodales scelerisque, blandit nec urna ullamcorper arcu curae nunc at suspendisse.
+                    Sodales eu curae quis odio aptent inceptos auctor id, velit montes nec molestie mauris non in, mus lectus risus felis cras nostra sem. Proin porttitor montes ligula sapien pellentesque bibendum ullamcorper per, tellus curabitur morbi laoreet donec neque auctor vehicula mauris, egestas eu mollis tempor nisi sodales ad. Curae vehicula mauris ornare risus nullam mattis pellentesque nostra, in iaculis libero aliquam faucibus montes ultricies inceptos, class scelerisque parturient accumsan ante dignissim auctor. Lorem ipsum dolor sit amet consectetur adipiscing elit, tempor bibendum iaculis suspendisse blandit mi natoque, praesent libero aliquet phasellus nulla netus.</p>
+                  </div>`,
     img: '../navbar-blur.webp'
   }, {
     id: 1,
@@ -31,6 +96,7 @@ export const contentArray = [
     type: 'backend',
     category: 'block',
     language: '',
+    visualisation: false,
     code: '',
     img: ''
   }, {
@@ -41,6 +107,7 @@ export const contentArray = [
     type: 'documentation',
     category: 'documentation',
     language: '',
+    visualisation: false,
     code: '',
     img: ''
   }, {
@@ -51,6 +118,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'block',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -61,6 +129,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'block',
     language: 'html',
+    visualisation: true,
     code: `
 <h1>KA-CHAU</h1>
 
@@ -90,6 +159,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'block',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -100,6 +170,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'block',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   },
@@ -111,6 +182,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'block',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -121,6 +193,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'block',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -131,6 +204,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'block',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -141,6 +215,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: `<style>
     @keyframes blurred-fade-in{
         0% {
@@ -168,6 +243,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: 'html',
+    visualisation: true,
     code: `<style>
             @keyframes fade-in{
                 0% {
@@ -193,6 +269,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: 'html',
+    visualisation: true,
     code: `<style>
     @keyframes fade-out{
         0% {
@@ -218,6 +295,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: 'html',
+    visualisation: true,
     code: `<style>
     @keyframes slide-out-left{
         0% {
@@ -243,6 +321,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: 'html',
+    visualisation: true,
     code: `<style>
     @keyframes slide-out-right{
         0% {
@@ -268,6 +347,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -278,6 +358,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -288,6 +369,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -298,6 +380,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -308,6 +391,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -318,6 +402,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -328,6 +413,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -338,6 +424,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -348,6 +435,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -358,6 +446,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -368,6 +457,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -378,6 +468,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -388,6 +479,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -398,6 +490,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -408,6 +501,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -418,6 +512,7 @@ export const contentArray = [
     type: 'frontend',
     category: 'animation',
     language: '',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -428,8 +523,8 @@ export const contentArray = [
     type: 'frontend',
     category: 'block',
     language: 'html',
-    code: `
-<svg
+    visualisation: true,
+    code: `<svg
 width="800" 
 height="579" 
 xmlns="http://www.w3.org/2000/svg"
@@ -475,6 +570,7 @@ class='h-[300px] w-[150px]'
     type: 'frontend',
     category: 'block',
     language: 'tailwindcss',
+    visualisation: true,
     code: '<div class="bg-gradient-to-r from-transparent via-white to-transparent h-[1px] w-full"></div>',
     img: ''
   }, {
@@ -485,6 +581,7 @@ class='h-[300px] w-[150px]'
     type: 'frontend',
     category: 'block',
     language: 'javascript',
+    visualisation: true,
     code: '',
     img: ''
   }, {
@@ -495,8 +592,43 @@ class='h-[300px] w-[150px]'
     type: 'frontend',
     category: 'block',
     language: 'html',
+    visualisation: true,
     code: `
 <div class='absolute inset-0 bg-gradient-to-t from-red-900 via-zinc-900/80 z-0' />`,
     img: ''
+  },
+  {
+    id: 35,
+    slug: 'json-to-xlsx',
+    title: 'JSON to XLSX',
+    description: 'Simple snippet to build an xlsx file from json using pandas',
+    type: 'backend',
+    category: 'block',
+    language: 'python',
+    visualisation: false,
+    code: `import json, os
+    import pandas as pd
+    from os import path
+    current = 'YOUR_PATH'
+    fileToRead = path.join(os.getcwd() + f"/db/{current}/YOUR_JSON_FILE_NAME.json") 
+    fileToWrite = path.join(os.getcwd() + f"/db/{current}/YOUR_XLSX_FILE_NAME.xlsx")
+
+    with open(fileToRead, 'r', encoding='utf-8') as json_file:
+        data = json.load(json_file)
+
+    to_return = []
+
+    for user in data:
+        name = user['name'].split(' ')[0]
+        surname = " ".join(user['name'].split(' ')[1:])
+        spec = user['specialty']
+        to_return.append({
+            'name': name,
+            'surname': surname,
+            'specialty': spec
+        })
+    df = pd.DataFrame(to_return)
+
+    df.to_excel(fileToWrite, index=False, header=True)`
   }
 ]

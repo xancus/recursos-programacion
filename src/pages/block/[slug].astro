@@ -1,40 +1,42 @@
 ---
+import {contentArray} from '../../db/db'
 import {Prism} from '@astrojs/prism'
 import Layout from '../../layouts/Layout.astro'
 import CopyCode from '../../components/CopyCode.astro'
-import {contentArray} from '../../db/db'
 import BlockContent from '../../components/block/BlockContent.astro'
 
-interface Content {
-    id: number;
-    slug: string;
-    code: string;
-    language: string; 
+
+export function getStaticPaths() {
+    return contentArray.map(({slug}) => {
+        return { params: { slug }}
+    })
 }
 
-const code: Content | undefined = contentArray.find(c => c.slug === 'background-gradient');
+const { slug } = Astro.params
+
+const [block] = contentArray.filter(content => content.slug === slug)
 
 ---
 
 <Layout 
-	description="Componente hecho con tailwind, html para añadir el efecto gradiente a tu background"
-	title="Background gradient" 
+	description={block.description}
+	title={block.title}
 >
     <section class="flex flex-col gap-6 pr-10">
         <div class="flex flex-col gap-6">
-            <h3 class="sr-only">Copia y disfruta del código para añadir este efecto de un background con gradiente</h3>
-            <span class="text-primary text-4xl font-medium">Background gradient</span>
+            <h3 class="sr-only">{block.description}</h3>
+            <span class="text-primary text-4xl font-medium">{block.title}</span>
         </div>
 
         <BlockContent>
             <div 
                 style={{border: '1px solid rgba(0,0,0,.2)', background: 'var(--cards-background-color)'}}
                 class="relative w-full rounded-lg border p-4 max-h-[450px] h-[450px] overflow-auto grid place-content-center"
-                data-id={code?.id}
+                data-id={block.id}
             >
-                <script is:inline define:vars={{code}}>
-                    const blurred = document.querySelector(`[data-id="${code.id}"]`);
-                    if (blurred) blurred.innerHTML = code?.code;
+                <script is:inline define:vars={{block}}>
+                    const $docEl = document.querySelector(`[data-id="${block.id}"]`);
+                    if ($docEl && block.visualisation) $docEl.innerHTML = block?.code;
             
                   </script>
             </div>
@@ -44,15 +46,15 @@ const code: Content | undefined = contentArray.find(c => c.slug === 'background-
                 class="relative w-full rounded-lg border border-[var(--color-primary)] max-h-[450px] h-[450px] overflow-auto"
             >
                 <div>
-                  <CopyCode slug={code?.slug}/>
+                  <CopyCode slug={block?.slug}/>
                 </div>
-                <div class="text-lg h-full" id={code?.slug}>
+                <div class="text-lg h-full" id={block?.slug}>
                   <pre class='text-base flex h-full'>
-                    {code && (
+                    {block && (
                         <Prism 
-                        class="!border-0 !text-xl !mb-0 flex-grow !mt-8"
-                        code={code.code} 
-                        lang={code.language} />
+                        class="!border-0 !text-md !mb-0 flex-grow !mt-8 !text-pretty"
+                        code={block.code} 
+                        lang={block.language} />
                     )}
                     </pre>
                 </div>
@@ -60,7 +62,3 @@ const code: Content | undefined = contentArray.find(c => c.slug === 'background-
         </BlockContent>
     </section>
 </Layout>
-
-<script>
-    
-</script>
